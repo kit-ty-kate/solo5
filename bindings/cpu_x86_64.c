@@ -200,6 +200,8 @@ void cpu_intr_enable(void)
 
 void cpu_halt(void)
 {
+    outw(0x604, 0x2000);
+    outw(0x501, 41);
     __asm__ __volatile__("cli; hlt");
     for(;;);
 }
